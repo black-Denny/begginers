@@ -11,6 +11,7 @@ public class BurgerView implements View {
     }
 
     public void emptyShow() {
+        /*스트림 사용하여 조회*/
         System.out.println("[BURGER MENU]");
         int i = 1;
         for(MenuItem temp : menu.getMenuItemList()) {
@@ -21,7 +22,7 @@ public class BurgerView implements View {
     }
 
     public void hasItemShow() {
-
+        /*스트림 사용하여 조회*/
         System.out.println("[BURGER MENU]");
         int i = 1;
         for(MenuItem temp : menu.getMenuItemList()) {

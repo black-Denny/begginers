@@ -22,9 +22,7 @@ public class Cart {
     }
 
     public double getTotalPrice() {
-        double total = cartItems.entrySet().stream().mapToDouble(entry -> entry.getKey().getPrice() * entry.getValue()).sum();
-        return total;
-
+       return cartItems.entrySet().stream().mapToDouble(entry -> entry.getKey().getPrice() * entry.getValue()).sum();
     }
 
 }
@@ -34,6 +32,7 @@ public class Cart {
 * */
 
 /*카트 클래스에서 메뉴정보를 받는게 문제인데, 만약에 메뉴를 다받는다고 해보자. 쿠팡같은건 수십만개를 받아야한다. 따라서 메뉴전체를 받아 카운트만 하는 아이디어는 안된다.
+갯수정보를 저장하거나 불러올 아이디어가 떠오르지 않아 hashmap의 밸류로 하였다.
  * */
 
 /*HashMap을 익명클래스로 처음에 오버라이드했다. 자동완성으로 되었다. 하나하나 구현해야되는데 안했다. 이렇게 한뒤 entrySet을 호출하니

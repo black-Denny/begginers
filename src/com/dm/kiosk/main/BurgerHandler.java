@@ -10,8 +10,6 @@ public class BurgerHandler {
 
     /*switch case는 추가 수정 삭제에서 극악임. for문으로 자동으로 돌아야 하고 포맷을 정해야함*/
 
-
-    String a = "[Shack Burger] " + 6.9 + "원 \n->토마토, 양상추, 쉑소스가 토핑된 치즈버거!";
     Scanner sc;
     Menu menu;
     int input;
@@ -20,7 +18,7 @@ public class BurgerHandler {
         this.menu = menu;
         this.sc = sc;
     }
-
+    /*스트림 사용하여 조회*/
     public void execute() {
         while (true) {
             input = sc.nextInt();

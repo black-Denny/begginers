@@ -12,7 +12,6 @@ public class Kiosk {
 
     private Menu menu;
     private Scanner sc = new Scanner(System.in);
-    private View view;
     private int input;
     public static Cart cart = new Cart();
 
@@ -24,12 +23,14 @@ public class Kiosk {
     public void start() {
         /*RequestHandler를 버전을 두가지로. 메뉴카테고리 핸들러, 각 아이템 핸들러. 객체로 따로 쓸수있게 할건가? 같은 클래스 안에서 다른방법이있나. 각 모듈의 인풋 아웃풋은 어떻게 할건가? 화면이랑은 어떻게 결합할건가
          * "단일책임원칙":객체 하나가 하나의 이유만으로만 변해야한다. */
-        BurgerHandler handler = new BurgerHandler(menu, sc);
         View categoryView = new CategoryView(menu);
         View burgerView = new BurgerView(menu);
-        BurgerHandler burgerHandler = new BurgerHandler(menu, sc);
         OrderView orderView = new OrderView();
-        Order order = new Order();
+        BurgerHandler burgerHandler = new BurgerHandler(menu, sc);
+        OrderHandler orderHandler = new OrderHandler();
+        DiscountView discountView = new DiscountView();
+        DiscountPolicy discountPolicy = new DiscountPolicy();
+
         /*(입력과 입력조건에따른 분기 마스터해야함, 모듈 그리고 논리처리)입력받고 if 하나로 */
         while (true) {
             try {
@@ -45,10 +46,8 @@ public class Kiosk {
                             burgerHandler.execute();
                             break;
                         case 2:
-                            System.out.println("Fries 실행");
                             break;
                         case 3:
-                            System.out.println("Beverages 실행");
                             break;
                     }
                 } else if(!Kiosk.cart.isEmpty()) {
@@ -63,16 +62,16 @@ public class Kiosk {
                             burgerHandler.execute();
                             break;
                         case 2:
-                            System.out.println("Fries 실행");
                             break;
                         case 3:
-                            System.out.println("Beverages 실행");
                             break;
                         case 4://Orders
                             orderView.hasItemShow();
-                            order.execute();
+                            orderHandler.execute();
+                            discountView.show();
+                            discountPolicy.execute();
                             break;
-                        case 5://Cancel 장바구니 비우기
+                        case 5://Cancel
                             cart.cartItems.clear();
                             break;
                     }
