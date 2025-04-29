@@ -10,9 +10,9 @@ import java.util.Scanner;
 
 public class Kiosk {
 
-    private Menu menu;
-    private Scanner sc = new Scanner(System.in);
-    private int input;
+    final private Menu menu;
+    final private Scanner sc = new Scanner(System.in);
+
     public static Cart cart = new Cart();
 
     public Kiosk(Menu menu) {
@@ -30,6 +30,7 @@ public class Kiosk {
         OrderHandler orderHandler = new OrderHandler();
         DiscountView discountView = new DiscountView();
         DiscountPolicy discountPolicy = new DiscountPolicy();
+        int input;
 
         /*(입력과 입력조건에따른 분기 마스터해야함, 모듈 그리고 논리처리)입력받고 if 하나로 */
         while (true) {
@@ -79,10 +80,8 @@ public class Kiosk {
             } catch (InputMismatchException e) {
                 System.out.println("Input Error\n");
                 sc.nextLine(); //이건 자바 Scanner.nextInt()가 문자 입력 실패 후에도 입력 버퍼에 남은 데이터를 처리하지 않기 때문에 생기는 전형적인 함정이야.
-                continue;
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("1 부터 " + menu.getCategoryList().size() + " 까지의 숫자를 입력하시오.");
-                continue;
             }
         }
     }
