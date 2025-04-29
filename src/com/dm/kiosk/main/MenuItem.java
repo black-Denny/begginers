@@ -65,4 +65,5 @@ public class MenuItem {
 * HashMap에서 hashCode()와 equals()는 "완벽히 일관성"이 있어야 한다.
 원칙 : hashCode()를 계산할 때 사용한 모든 필드(변수)는, equals()에서도 반드시 비교해줘야 한다. HashCode가 같은 값이 저장 되면 다른객체인데 같다고 판단가능, 해시코드는 다르지만 equals에서 같다고 할수도있음
 * hashcode에 투입된 변수를 정확히 같이 비교하는게 해쉬맵의 검색 빠르기 이후 정확성을 보장하는것. 빨리 대충 검색하되 판단은 제대로한다. 틀리면 빨리 넘어간다.
-* hashcode는 서치용이고 정말 같은지 true/false 는 직접 대조해보는 방식이다.*/
+* hashcode는 서치용이고 정말 같은지 true/false 는 직접 대조해보는 방식이다.
+* hashcode()의 파라미터로 int a, int b int c를 넣어 키값을 만들었다면, 찾을때도 똑같이 abc를 넣어서 hashcode를 만들어 찾아야한다.*/

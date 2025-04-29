@@ -8,7 +8,8 @@ public class Menu {
     enum ItemCategory {
         BURGER(1),
         FRIES(2),
-        BEVERAGE(3);
+        BEVERAGE(3),
+        CONCRETES(4);
 
         int num;
 

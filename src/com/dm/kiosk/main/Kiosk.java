@@ -25,8 +25,8 @@ public class Kiosk {
          * "단일책임원칙":객체 하나가 하나의 이유만으로만 변해야한다. */
         View categoryView = new CategoryView(menu);
         View burgerView = new BurgerView(menu);
-        OrderView orderView = new OrderView();
         BurgerHandler burgerHandler = new BurgerHandler(menu, sc);
+        OrderView orderView = new OrderView();
         OrderHandler orderHandler = new OrderHandler();
         DiscountView discountView = new DiscountView();
         DiscountPolicy discountPolicy = new DiscountPolicy();
